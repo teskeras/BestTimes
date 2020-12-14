@@ -1,0 +1,54 @@
+﻿@model BestTimeFormModel
+
+<div class="col-md-5">
+    <form asp-controller="Home" asp-action="Create" method="post" class="form-horizontal">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="FirstName" class="col-md-6 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName" class="col-md-6 control-label"></label>
+            <div class="col-md-6">
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Hours" class="col-md-4 control-label"></label>
+            <div class="col-md-4">
+                <input asp-for="Hours" class="form-control" />
+                <span asp-validation-for="Hours" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Minutes" class="col-md-4 control-label"></label>
+            <div class="col-md-4">
+                <input asp-for="Minutes" class="form-control" />
+                <span asp-validation-for="Minutes" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Seconds" class="col-md-4 control-label"></label>
+            <div class="col-md-4">
+                <input asp-for="Seconds" class="form-control" />
+                <span asp-validation-for="Seconds" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Miliseconds" class="col-md-4 control-label"></label>
+            <div class="col-md-4">
+                <input asp-for="Miliseconds" class="form-control" />
+                <span asp-validation-for="Miliseconds" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,10 @@
+﻿@model IEnumerable<BestTimes.Data.BestTime>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    @await Html.PartialAsync("FormPartial", new BestTimeFormModel())
+    <partial name="ListPartial" model="Model"/>
+</div>

@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@model IEnumerable<BestTimes.Data.BestTime>
+
+<div class="col-md-7">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model.Select((item, index) => new { item, index }))
+            {
+                var row = x.index + 1;
+                var name = x.item.FirstName + " " + x.item.LastName;
+                var time = x.item.Hours + "h " + x.item.Minutes + "m " + x.item.Seconds + "s " + x.item.Miliseconds + "ms";
+            <tr>
+                <th scope="row">@row</th>
+                <td>@name</td>
+                <td>@time</td>
+
+                @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                {
+                    <td>@await Html.PartialAsync("FormDeletePartial", new FormIdModel { Id = x.item.Id })</td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
